@@ -1,64 +1,113 @@
-.left-container {
-  width: 300px;
-}
 .job-container {
   background-color: #000000;
   color: #ffffff;
   display: flex;
-  padding: 10px;
-  height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  min-height: 100vh;
 }
+
+.left-container {
+  width: 300px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+.profile-container {
+  background-image: url("https://assets.ccbp.in/frontend/react-js/profile-bg.png");
+  background-size: cover;
+  height: 250px;
+  width: 250px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.profile-name {
+  color: #ffffff;
+}
+
+.sub-heading {
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.right-container {
+  flex: 1;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  border: 1px solid #555;
+  padding: 6px 10px;
+  background-color: transparent;
+  color: #ffffff;
+  outline: none;
+  width: 250px;
+}
+
+.search-btn {
+  color: #ffffff;
+  background-color: #202020;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
 .job-card {
   display: flex;
   flex-direction: column;
   background-color: #202020;
   border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
   color: #ffffff;
 }
-.search-container {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-}
-.input {
-  color: grey;
-  background-color: transparent;
-}
-.search-btn {
-  color: #ffffff;
-  background-color: #202020;
-}
-.line {
-  border-color: #ffffff;
-}
-.location {
-  display: flex;
-}
-.work-container {
-  display: flex;
-  justify-content: space-between;
-}
-.profile-container {
-  background-image: url(https://assets.ccbp.in/frontend/react-js/profile-bg.png);
-  height: 250px;
-  width: 250px;
-  padding: 5px;
-  color: #ffffff;
-}
-h1,
-p {
-  color: #ffffff;
-}
-a {
-  color: #ffffff;
-  text-decoration: none;
-}
+
 .company-logo {
   height: 80px;
   width: 80px;
 }
+
 .logo-heading {
   display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.location-container {
+  display: flex;
+  gap: 20px;
+}
+
+.work-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line {
+  border: 1px solid #ffffff;
+}
+
+.job-card h1,
+.job-card p {
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.no-job-img {
+  width: 300px;
+  display: block;
+  margin: 20px auto;
 }

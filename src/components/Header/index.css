@@ -1,26 +1,38 @@
 .nav-container {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 5px 20px;
   height: 80px;
   background-color: #202020;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+
 .logo {
   height: 40px;
-  width: 300pxx;
+  width: 200px;
 }
+
 .list-container {
   display: flex;
-  color: #ffffff;
+  align-items: center;
+  gap: 20px;
 }
+
 li {
-  padding: 5px;
   list-style-type: none;
-  color:#ffffff;
 }
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .logout {
   background-color: #4f46e5;
   color: #ffffff;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
+  border: none;
 }

@@ -1,29 +1,73 @@
 .container {
   background-color: #000000;
-  padding: 10px;
+  padding: 20px;
+  min-height: 100vh;
 }
+
 .jobdetails-container {
   border-radius: 10px;
   background-color: #202020;
-  margin: 10px;
-  padding: 10px;
+  margin: auto;
+  padding: 20px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   color: #ffffff;
 }
-.skill-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.life-company-container {
-  display: flex;
-}
-.similarjob-container {
-  display: flex;
-  flex-direction: column;
-  color: #ffffff;
-}
+
 .desc-link {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.desc-link a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.skill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+}
+
+.skill-container li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-container img {
+  height: 40px;
+  width: 40px;
+}
+
+.life-company-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.life-company-container img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.similarjob-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+h1,
+p {
+  color: #ffffff;
+  margin: 5px 0;
 }

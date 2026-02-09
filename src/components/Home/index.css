@@ -3,7 +3,8 @@
   height: 100vh;
   background-size: cover;
   color: #ffffff;
-  text-align:center;
+  text-align: center;
+  padding: 5px;
 }
 .button {
   padding: 5px;

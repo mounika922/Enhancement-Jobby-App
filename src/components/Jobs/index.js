@@ -44,6 +44,14 @@ const salaryRangesList = [
   },
 ]
 
+const locationList = [
+  {label: 'Hyderabad', locationId: 'HYDERABAD'},
+  {label: 'Bangalore', locationId: 'BANGALORE'},
+  {label: 'Chennai', locationId: 'CHENNAI'},
+  {label: 'Delhi', locationId: 'DELHI'},
+  {label: 'Mumbai', locationId: 'MUMBAI'},
+]
+
 const apiProfileConst = {
   initial: 'INITIAL',
   success: 'SUCCESS',
@@ -60,6 +68,7 @@ class Jobs extends Component {
     salaryId: '',
     employType: [],
     jobsList: [],
+    locationType: [],
   }
 
   componentDidMount() {
@@ -119,12 +128,32 @@ class Jobs extends Component {
     this.setState({searchValue: event.target.value})
   }
 
+  onClickLocation = event => {
+    const {locationType} = this.state
+
+    if (locationType.includes(event.target.value)) {
+      this.setState(
+        {
+          locationType: locationType.filter(
+            each => each !== event.target.value,
+          ),
+        },
+        this.getJobs,
+      )
+    } else {
+      this.setState(
+        {locationType: [...locationType, event.target.value]},
+        this.getJobs,
+      )
+    }
+  }
+
   successProfile = () => {
     const {profile} = this.state
     return (
       <div className="profile-container">
         <img src={profile.profileImageUrl} alt="profile" className="profile" />
-        <h1>{profile.name}</h1>
+        <h1 className="profile-name">{profile.name}</h1>
         <p>{profile.shortBio}</p>
       </div>
     )
@@ -159,12 +188,14 @@ class Jobs extends Component {
   }
 
   getJobs = async () => {
-    const {salaryId, employType, searchValue} = this.state
+    const {salaryId, employType, searchValue, locationType} = this.state
     const jwtToken = Cookies.get('jwt_token')
     this.setState({apiJob: apiProfileConst.in_progress})
     const url = `https://apis.ccbp.in/jobs?employment_type=${employType.join(
       ',',
-    )}&minimum_package=${salaryId}&search=${searchValue}`
+    )}&minimum_package=${salaryId}&search=${searchValue}&location=${locationType.join(
+      ',',
+    )}`
     const options = {
       method: 'GET',
       headers: {
@@ -174,7 +205,7 @@ class Jobs extends Component {
     const response = await fetch(url, options)
     if (response.ok === true) {
       const data = await response.json()
-      const updatedJobData = data.jobs.map(each => ({
+      let updatedJobData = data.jobs.map(each => ({
         companyLogoUrl: each.company_logo_url,
         companyWebsiteUrl: each.company_website_url,
         employmentType: each.employment_type,
@@ -185,6 +216,11 @@ class Jobs extends Component {
         rating: each.rating,
         title: each.title,
       }))
+      if (locationType.length > 0) {
+        updatedJobData = updatedJobData.filter(job =>
+          locationType.includes(job.location.toUpperCase()),
+        )
+      }
       this.setState({
         apiJob: apiProfileConst.success,
         jobsList: updatedJobData,
@@ -212,7 +248,7 @@ class Jobs extends Component {
             </div>
           </div>
           <div className="work-container">
-            <div className="location">
+            <div className="location-container">
               <p>{each.location}</p>
               <p>{each.employmentType}</p>
             </div>
@@ -288,7 +324,7 @@ class Jobs extends Component {
             {this.profileStatus()}
             <hr />
             <div>
-              <h1>Type of Employment</h1>
+              <h1 className="sub-heading">Type of Employment</h1>
               <ul>
                 {employmentTypesList.map(each => (
                   <li key={each.employmentTypeId}>
@@ -296,14 +332,14 @@ class Jobs extends Component {
                       type="checkbox"
                       id={each.employmentTypeId}
                       value={each.employmentTypeId}
-                      onClick={this.onClickEmployeeType}
+                      onChange={this.onClickEmployeeType}
                     />
                     <label htmlFor={each.employmentTypeId}>{each.label}</label>
                   </li>
                 ))}
               </ul>
               <hr className="line" />
-              <h1>Salary Range</h1>
+              <h1 className="sub-heading">Salary Range</h1>
               <ul>
                 {salaryRangesList.map(each => (
                   <li key={each.salaryRangeId}>
@@ -311,10 +347,25 @@ class Jobs extends Component {
                       type="radio"
                       id={each.salaryRangeId}
                       value={each.salaryRangeId}
-                      onClick={this.salaryRange}
+                      onChange={this.salaryRange}
                       name="salary"
                     />
                     <label htmlFor={each.salaryRangeId}>{each.label}</label>
+                  </li>
+                ))}
+              </ul>
+              <h1 className="sub-heading">Location</h1>
+              <ul>
+                {locationList.map(each => (
+                  <li key={each.locationId}>
+                    <input
+                      id={each.locationId}
+                      type="checkbox"
+                      name="location"
+                      value={each.locationId}
+                      onChange={this.onClickLocation}
+                    />
+                    <label htmlFor={each.locationId}>{each.label}</label>
                   </li>
                 ))}
               </ul>
