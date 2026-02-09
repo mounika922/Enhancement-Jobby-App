@@ -1,0 +1,10 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color:#ffffff;
+}
+.not-img {
+  height: 400px;
+  width: 300px;
+}

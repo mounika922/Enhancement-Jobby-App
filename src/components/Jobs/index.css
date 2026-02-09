@@ -1,0 +1,64 @@
+.left-container {
+  width: 300px;
+}
+.job-container {
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  padding: 10px;
+  height: 100vh;
+}
+.job-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  color: #ffffff;
+}
+.search-container {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+.input {
+  color: grey;
+  background-color: transparent;
+}
+.search-btn {
+  color: #ffffff;
+  background-color: #202020;
+}
+.line {
+  border-color: #ffffff;
+}
+.location {
+  display: flex;
+}
+.work-container {
+  display: flex;
+  justify-content: space-between;
+}
+.profile-container {
+  background-image: url(https://assets.ccbp.in/frontend/react-js/profile-bg.png);
+  height: 250px;
+  width: 250px;
+  padding: 5px;
+  color: #ffffff;
+}
+h1,
+p {
+  color: #ffffff;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.company-logo {
+  height: 80px;
+  width: 80px;
+}
+.logo-heading {
+  display: flex;
+}

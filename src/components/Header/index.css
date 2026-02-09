@@ -1,0 +1,26 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  height: 80px;
+  background-color: #202020;
+}
+.logo {
+  height: 40px;
+  width: 300pxx;
+}
+.list-container {
+  display: flex;
+  color: #ffffff;
+}
+li {
+  padding: 5px;
+  list-style-type: none;
+  color:#ffffff;
+}
+.logout {
+  background-color: #4f46e5;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 5px;
+}

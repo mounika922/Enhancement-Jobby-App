@@ -1,0 +1,24 @@
+.login-container {
+  background-color: #000000;
+  padding: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 400px;
+  color: #ffffff;
+  background-color: #202020;
+  padding: 10px;
+  margin: 10px;
+}
+button {
+  background-color: #4f46e5;
+  color: #ffffff;
+  margin: 10px;
+}
+.error {
+  color: red;
+}
