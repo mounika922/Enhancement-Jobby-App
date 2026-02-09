@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: black;
-  color:#ffffff;
+  color: #ffffff;
 }
 .not-img {
   height: 400px;

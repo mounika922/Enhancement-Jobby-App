@@ -17,7 +17,7 @@
 }
 
 .profile-container {
-  background-image: url("https://assets.ccbp.in/frontend/react-js/profile-bg.png");
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
   background-size: cover;
   height: 250px;
   width: 250px;
